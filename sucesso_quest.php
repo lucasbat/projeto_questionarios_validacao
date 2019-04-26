@@ -3,12 +3,13 @@ session_start();
 include('verifica_login.php');
 include('conexao.php');
 
-$sql = "select * from perguntas";
+//$sql = "select * from Respostas_total";
+
+$sql = "SELECT Perguntas_questionarios.perguntaQuestio, Modelos_questionarios.modeloQuestio FROM Perguntas_questionarios INNER JOIN Categorias_modelos ON Categorias_modelos.idCategModelo = Perguntas_questionarios.idCategModelo INNER JOIN Modelos_questionarios ON Modelos_questionarios.idModeloQuestio = Perguntas_questionarios.idModeloQuestio";
 $result = $conexao->query($sql);
 
 /*$row = mysqli_num_rows($result);*/
      
-
 //colocar noutro arquivo o seguinte trecho de código ******IMPORTANTE**
 // conecta ao banco de dados
 //$conexao = mysqli_connect(HOST, USUARIO, SENHA, DB)  or die ('Não possível conectar'); 
@@ -26,6 +27,7 @@ $result = $conexao->query($sql);
 
 <html>
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -104,67 +106,57 @@ $result = $conexao->query($sql);
 
         <div class="tabs is-medium is-centered">
             <ul>
-                <li class="is-active">
+                <li>
                     <a href="questionarios.php">
                      <span>Questionários</span>
                     </a>
                 </li>
-                <li>
+                <li class="is-active">
                     <a href="meus_questionarios.php">
                      <span>Meus Questionários</span>
                     </a>
                 </li>
                 <li>
                     <a href="resultados.php">
-                     <span>Resultados</span>
+                        <span>Resultados</span>
                     </a>
                 </li>
             </ul>
         </div>
-        <a class="button is-info is-large" href="gera_questionario.php">CRIAR NOVO QUESTIONÁRIO</a><br> <br>
-        <div class="box">
-            <div class="content">
-                <ol type="1">
-                    <h2> Modelo de dieta & fitness </h2> 
-                    <li> Quão fisicamente saudável está neste momento? </li>
-                    <li> Consome suplementos nutricionais? </li>
-                    <li> Qual grau de importância é dada à prática de exercícios físico? </li>
-                    <li> Numa semana típica, quantas vezes pratica exercíco? </li>
-                    <li> Qual é o exercício que pratica com maior frequência? </li>
-                    <li> Avalie a frequencia com que pratica exercício físico. Sente que pratica muito exercício, pouco exercício ou o necessário? </li>
-                    <li> Numa semana típica, quantas refeições ou lanches incluem carboidratos? </li>
-                    <li> Numa semana típica, quantas refeições ou lanches incluem proteínas? </li>
-                    <li> Numa semana típica, quantas refeições ou lanches incluem vegetais? </li>
-                    <li> Numa semana típica, quantas refeições ou lanches incluem fruta? </li>
-                </ol>
-            </div>   
-            <a class="button is-info is-outlined is-large" href="modeloq1.php">USAR ESSE/PERSONALIZAR</a>  
-        </div>  
-        <div class="box">
+        <br>
         
-            <div class="content">
-                <ol type="1">
-                    <h2> Modelo médico de avaliação de desempenho  </h2> 
-                    <li> Durante uma visita de rotina ao médico, sente que o consumo do seu tempo é elevado, baixo ou o tempo necessário? </li>
-                    <li> Até que ponto confia no seu médico para tomar decisões médicas que são de seu grande interesse? </li>
-                    <li> Quão útil foi o seu médico explicando a sua condição de saúde? </li>
-                    <li> Quão bem o seu médico escutou a sua descrição, queixa ou pedido? </li>
-                    <li> Quão rápida é a ajuda do seu médico e respectiva equipe sempre que necessita de ajuda? </li>
-                    <li> Quão amigável é a equipe do seu médico? </li>
-                    <li> Quão conhecedora é a equipe do seu médico? </li>
-                    <li> Quão fácil é marcar uma consulta médica quando está doente? </li>
-                    <li> De forma geral, quão satisfeito ou insatisfeito está com o seu médico? </li>
-                    <li> Até que ponto recomendaria o seu médico à sua família e amigos? </li>
-                </ol>
-            </div> 
-            <a class="button is-info is-outlined is-large" href="modeloq2.php">USAR ESSE/PERSONALIZAR</a>    
-        </div>   
+        <article class="message is-info">
+            <div class="message-header">
+                <p>Primary</p>
+                    <a  href="meus_questionarios.php">
+                        <button class="delete" aria-label="delete"></button>
+                    </a>
+            </div>
+            <div class="message-body">
+                <strong>Questionário enviado com sucesso!</strong><br><br>
+                <a class="button is-info" href="meus_questionarios.php">
+                    <strong>Nova entrevista</strong>
+                </a>
+            </div>
+        </article>  
+
+          
           
     </div>      
-
-
-
 
 </div>
 </body>
 </html>
+
+<!--
+<form action="submete_quest.php" method="post">
+            <p>
+                <input type="radio" name="band-rock" value="beatles"/>The Beatles
+                <input type="radio" name="band-rock" value="led-zeppelin"/> Led Zeppelin
+                <input type="radio" name="band-rock" value="pink-floyd"/>Pink Floy
+            </p>
+            <p>
+                <input type="button" value="Submit me!" />
+            </p>
+</form>                               
+-->

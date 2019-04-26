@@ -88,7 +88,7 @@ $result = $conexao->query($sql);
       <div class="navbar-item">
         <div class="buttons">
           <a class="button is-info is-outlined " href="painel.php">
-            <strong><?php echo $_SESSION['usuario'];?></strong>
+            <strong><?php echo $_SESSION['nomeUsuario'];?></strong>
           </a>
           <a class="button is-light" href="logout.php">
             Sair
@@ -110,20 +110,16 @@ $result = $conexao->query($sql);
                     </a>
                 </li>
                 <li>
-                    <a>
+                    <a href="meus_questionarios.php">
+                    <span>Meus Questionários</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="resultados.php">
                     <span>Resultados</span>
                     </a>
                 </li>
-                <li>
-                    <a href="painel.php">
-                        <span>Meu Perfil</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="logout.php">
-                    <span>Sair</span>
-                    </a>
-                </li>
+               
             </ul>
         </div>
         <h2>AQUI VOCÊ PODE CRIAR UM NOVO QUESTIONÁRIO</h2><br> <br>

@@ -88,7 +88,7 @@ $result = $conexao->query($sql);
       <div class="navbar-item">
         <div class="buttons">
           <a class="button is-info is-outlined " href="painel.php">
-            <strong><?php echo $_SESSION['usuario'];?></strong>
+            <strong><?php echo $_SESSION['nomeUsuario'];?></strong>
           </a>
           <a class="button is-light" href="logout.php">
             Sair
@@ -110,21 +110,16 @@ $result = $conexao->query($sql);
                     </a>
                 </li>
                 <li>
-                    <a>
-                    <span>Resultados</span>
+                    <a href="meus_questionarios.php">
+                     <span>Meus Questionários</span>
                     </a>
                 </li>
                 <li>
-                    <a href="painel.php">
-                        <span>Meu Perfil</span>
+                    <a href="resultados.php">
+                     <span>Resultados</span>
                     </a>
                 </li>
-                <li>
-                    <a href="logout.php">
-                    <span>Sair</span>
-                    </a>
-                </li>
-            </ul>
+              </ul>
         </div>
         <a class="button is-info is-large" href="gera_questionario.php">CRIAR NOVO QUESTIONÁRIO</a><br> <br>
         <div class="box">
@@ -143,7 +138,7 @@ $result = $conexao->query($sql);
                     <li> Numa semana típica, quantas refeições ou lanches incluem fruta? </li>
                 </ol>
             </div>   
-            <a class="button is-info is-outlined is-large">USAR ASSIM</a>
+            <a class="button is-info is-outlined is-large" href="meus_questionarios.php">USAR ASSIM</a>
             <a class="button is-info is-outlined is-large">PERSONALIZAR</a>   
         </div>  
     

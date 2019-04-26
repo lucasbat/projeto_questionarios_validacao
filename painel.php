@@ -10,7 +10,7 @@ include('verifica_login.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Web Science - Consultoria Científica</title>
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
     <link rel="stylesheet" href="css/bulma.min.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -68,7 +68,7 @@ include('verifica_login.php');
       <div class="navbar-item">
         <div class="buttons">
           <a class="button is-info is-outlined " href="painel.php">
-            <strong><?php echo $_SESSION['usuario'];?></strong>
+            <strong><?php echo $_SESSION['nomeUsuario'];?></strong>
           </a>
           <a class="button is-light" href="logout.php">
             Sair
@@ -79,32 +79,48 @@ include('verifica_login.php');
   </div>
 </nav>   
 
-    <div class="container">
-
+  <div class="container">
+   
         <div class="tabs is-medium is-centered">
             <ul>
                 <li>
-                    <a href="questionarios.php">
-                    <span>Questionários</span>
-                    </a>
+                <a class="button is-info is-outlined is-large" title="Questionários" href="questionarios.php"><i class="fas fa-clipboard-list"></i></a> 
                 </li>
                 <li>
-                    <a>
-                    <span>Resultados</span>
-                    </a>
-                </li>
-                <li class="is-active">
-                    <a href="painel.php">
-                        <span>Meu Perfil</span>
-                    </a>
+                <a class="button is-info is-outlined is-large" title="Meus Questionários" href="meus_questionarios.php"><i class="fas fa-folder-open"></i></a>
                 </li>
                 <li>
-                    <a href="logout.php">
-                    <span>Sair</span>
-                    </a>
+                <a class="button is-info is-outlined is-large" title="Resultados" href="resultados.php"><i class="fas fa-poll"></i></a>
                 </li>
             </ul>
         </div>
 
+
+
+
+
+        <!--Selecionar Foto-->
+        <div class="box"  alt="Questionários">
+          <img src="https://abrilexame.files.wordpress.com/2018/10/capaprofile.jpg" width="177" height="65">
+          <div class="file has-name is-boxed">
+          
+
+            <label class="file-label">
+              <input class="file-input" type="file" name="resume">
+              <span class="file-cta">
+                <span class="file-icon">
+                  <i class="fas fa-upload"></i>
+                </span>
+                <span class="file-label">
+                  Escolher foto...
+                </span>
+              </span>
+              <span class="file-name">
+                Minha melhor foto.png
+              </span>
+            </label>
+          </div>
+        </div>
+       
 </body>
 </html>

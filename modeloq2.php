@@ -106,7 +106,7 @@ $result = $conexao->query($sql);
             <ul>
                 <li class="is-active">
                     <a href="questionarios.php">
-                     <span>Questionários</span>
+                    <span>Questionários</span>
                     </a>
                 </li>
                 <li>
@@ -125,43 +125,50 @@ $result = $conexao->query($sql);
         <div class="box">
             <div class="content">
                 <ol type="1">
-                    <h2> Modelo de dieta & fitness </h2> 
-                    <li> Quão fisicamente saudável está neste momento? </li>
-                    <li> Consome suplementos nutricionais? </li>
-                    <li> Qual grau de importância é dada à prática de exercícios físico? </li>
-                    <li> Numa semana típica, quantas vezes pratica exercíco? </li>
-                    <li> Qual é o exercício que pratica com maior frequência? </li>
-                    <li> Avalie a frequencia com que pratica exercício físico. Sente que pratica muito exercício, pouco exercício ou o necessário? </li>
-                    <li> Numa semana típica, quantas refeições ou lanches incluem carboidratos? </li>
-                    <li> Numa semana típica, quantas refeições ou lanches incluem proteínas? </li>
-                    <li> Numa semana típica, quantas refeições ou lanches incluem vegetais? </li>
-                    <li> Numa semana típica, quantas refeições ou lanches incluem fruta? </li>
+                    <h2> Modelo médico de avaliação de desempenho </h2>
+                    <li>Durante uma visita de rotina ao médico, sente que o consumo do seu tempo é elevado, baixo ou o tempo necessário? </li>
+                    <li>Até que ponto confia no seu médico para tomar decisões médicas que são de seu grande interesse? </li>
+                    <li>Quão útil foi o seu médico explicando a sua condição de saúde? </li>
+                    <li>Quão bem o seu médico escutou a sua descrição, queixa ou pedido? </li>
+                    <li>Quão rápida é a ajuda do seu médico e respectiva equipe sempre que necessita de ajuda? </li>
+                    <li>Quão amigável é a equipe do seu médico? </li>
+                    <li>Quão conhecedora é a equipe do seu médico? </li>
+                    <li>Quão fácil é marcar uma consulta médica quando está doente? </li>
+                    <li>De forma geral, quão satisfeito ou insatisfeito está com o seu médico? </li>
+                    <li>Até que ponto recomendaria o seu médico à sua família e amigos? </li>
                 </ol>
             </div>   
-            <a class="button is-info is-outlined is-large" href="modeloq1.php">USAR ESSE/PERSONALIZAR</a>  
+            <a class="button is-info is-outlined is-large">USAR ASSIM</a>
+            <a class="button is-info is-outlined is-large">PERSONALIZAR</a>   
         </div>  
+    
         <div class="box">
-        
-            <div class="content">
-                <ol type="1">
-                    <h2> Modelo médico de avaliação de desempenho  </h2> 
-                    <li> Durante uma visita de rotina ao médico, sente que o consumo do seu tempo é elevado, baixo ou o tempo necessário? </li>
-                    <li> Até que ponto confia no seu médico para tomar decisões médicas que são de seu grande interesse? </li>
-                    <li> Quão útil foi o seu médico explicando a sua condição de saúde? </li>
-                    <li> Quão bem o seu médico escutou a sua descrição, queixa ou pedido? </li>
-                    <li> Quão rápida é a ajuda do seu médico e respectiva equipe sempre que necessita de ajuda? </li>
-                    <li> Quão amigável é a equipe do seu médico? </li>
-                    <li> Quão conhecedora é a equipe do seu médico? </li>
-                    <li> Quão fácil é marcar uma consulta médica quando está doente? </li>
-                    <li> De forma geral, quão satisfeito ou insatisfeito está com o seu médico? </li>
-                    <li> Até que ponto recomendaria o seu médico à sua família e amigos? </li>
-                </ol>
-            </div> 
-            <a class="button is-info is-outlined is-large" href="modeloq2.php">USAR ESSE/PERSONALIZAR</a>    
-        </div>   
-          
-    </div>      
+                <table>
+                    <h3>ID:  Pergunta:
+                    <td>
+                        <?php
+                        if ($result->num_rows > 0) {
+                            // saida de cada linha
+                            while($row = $result->fetch_assoc()) { ?>
+                                
+                                <tr><?php echo $row["pergunta_id"]; ?> </tr>
+                                <tr><?php echo $row["pergunta"]; ?> </tr><br>
+                            <?php } 
+                        } else {
+                            echo "0 results";
+                        }
+                        ?>
+                    </td>
+                </table>
+        </div>
 
+
+
+
+
+
+
+ 
 
 
 

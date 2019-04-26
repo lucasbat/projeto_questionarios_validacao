@@ -3,15 +3,16 @@ session_start();
 include('conexao.php');
 
 /*Permitir acesso somente c senha*/
-if(empty($_POST['usuario']) || empty($_POST['senha'])){
+if(empty($_POST['nomeUsuario']) || empty($_POST['senhaUsuario'])){
     header('Location: index.php');
     exit();
 }
 
-$usuario = mysqli_real_escape_string($conexao, $_POST['usuario']);
-$senha = mysqli_real_escape_string($conexao, $_POST['senha']);
+$nomeUsuario = mysqli_real_escape_string($conexao, $_POST['nomeUsuario']);
+$senhaUsuario = mysqli_real_escape_string($conexao, $_POST['senhaUsuario']);
 
-$query = "select usuario_id, usuario from usuario where usuario = '{$usuario}' and senha = md5('{$senha}')";
+$query = "select idUsuario, nomeUsuario from Usuarios where nomeUsuario = '{$nomeUsuario}' and 
+                                                                           senhaUsuario = '{$senhaUsuario}'";
 
 $result = mysqli_query($conexao, $query);
 
@@ -20,7 +21,7 @@ $row = mysqli_num_rows($result);
 /* echo $row; exit(); */
 
 if($row == 1){
-    $_SESSION['usuario'] = $usuario;
+    $_SESSION['nomeUsuario'] = $nomeUsuario;
     header('Location: questionarios.php');
     exit();
 }else {
