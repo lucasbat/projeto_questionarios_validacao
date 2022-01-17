@@ -28,3 +28,25 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 INSERT INTO Perguntas_questionarios(perguntaQuestio, idCategModelo, idModeloQuestio) VALUES (' Durante uma visita de rotina ao medico, sente que o consumo do seu tempo e elevado, baixo ou o tempo necessario? ', 1, 1),('Ate que ponto confia no seu medico para tomar decisoes medicas que sao de seu grande interesse? ', 1, 1),('Quao util foi o seu medico explicando a sua condicao de saude? ', 1, 1),('Quao bem o seu medico escutou a sua descricao, queixa ou pedido? ', 1, 1),('Quao rapida e a ajuda do seu medico e respectiva equipe sempre que necessita de ajuda? ', 1, 1),('Quao amigavel e a equipe do seu medico? ', 1, 1),(' Quao conhecedora e a equipe do seu medico? ', 1, 1),('Quao facil e marcar uma consulta medica quando esta doente? ', 1, 1),('De forma geral, quao satisfeito ou insatisfeito esta com o seu medico? ', 1, 1),('Ate que ponto recomendaria o seu medico a sua familia e amigos? ', 1, 1);
 INSERT INTO Perguntas_questionarios(perguntaQuestio, idCategModelo, idModeloQuestio) VALUES (' Qu~ao fisicamente saud’avel est’a neste momento? ', 2, 2),('Consome suplementos nutricionais? ', 2, 2),('Qual grau de import^ancia ‘e dada ‘a prática de exercícios físico? ', 2, 2),('Numa semana típica, quantas vezes pratica exercíco? ', 2, 2),('Qual é o exercício que pratica com maior frequência? ', 2, 2),
 ('Avalie a frequencia com que pratica exercício físico. Sente que pratica muito exercício, pouco exercício ou o necessário? ', 2, 2),('Numa semana típica, quantas refeições ou lanches incluem carboidratos? ', 2, 2),(' Numa semana típica, quantas refeições ou lanches incluem proteínas?' , 2, 2),('Numa semana típica, quantas refeições ou lanches incluem vegetais? ', 2, 2),('Numa semana típica, quantas refeições ou lanches incluem fruta? ', 2, 2);
+
+CREATE TABLE Usuarios(
+idUsuario int NOT NULL AUTO_INCREMENT 
+, nomeUsuario VARCHAR(100) NOT NULL
+, senhaUsuario VARCHAR(32) NOT NULL
+, PRIMARY KEY(idUsuario),  UNIQUE (nomeUsuario)) 
+ENGINE=InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO Usuarios(nomeUsuario, senhaUsuario) VALUES ('lucas','lucas'), ('usuario','usuario');
+
+CREATE TABLE Respostas_total(
+idRespTotal int NOT NULL AUTO_INCREMENT
+, respValor int 
+, idPergunQuestio int
+, idUsuario int
+, data TIMESTAMP
+, PRIMARY KEY(idRespTotal)
+,FOREIGN KEY (idPergunQuestio) REFERENCES Perguntas_questionarios(idPergunQuestio)
+,FOREIGN KEY (idUsuario) REFERENCES Usuarios(idUsuario)) 
+ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO Respostas_total(respValor, idPergunQuestio, idUsuario) VALUES (10, 1, 1),(9, 2, 1),(8, 3, 1),(10, 4, 1),(7, 5, 1),(10, 6, 1),(10, 7, 1),(8, 8, 1),(10, 9, 1),(5, 10, 1);
+INSERT INTO Respostas_total(respValor, idPergunQuestio, idUsuario) VALUES (8, 1, 1),(7, 2, 1),(8, 3, 1),(9, 4, 1),(7, 5, 1),(7, 6, 1),(7, 7, 1),(8, 8, 1),(8, 9, 1),(10, 10, 1);
